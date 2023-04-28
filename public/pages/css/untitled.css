@@ -1,0 +1,23 @@
+.navbar-brand {
+  font-family: 'Montserrat Subrayada';
+  /*background: #f0f0f0;*/
+}
+
+body {
+  font-family: 'Montserrat',"Lato",sans-serif;
+}
+
+.navbar {
+  background: #f0f0f0;
+}
+
+.backimg {
+  background-repeat: no-repeat;
+  background-position: 30% 0;
+  background-size: cover;
+  background-image: url(/assets/img/ferry-crossing-departure-ship.jpg?h=c0698e941037df54ce30fd0488bfee3b);
+}
+
+.footer {
+}
+
