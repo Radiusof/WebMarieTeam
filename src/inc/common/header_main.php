@@ -4,6 +4,9 @@
         <div class="collapse navbar-collapse" id="navcol-1">
             <?php session_start();
 
+            $_SESSION["date"] = "";
+            $_SESSION["secteur"] = "";
+
             date_default_timezone_set("Europe/Paris");
             if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
                 echo "<a class=\"btn ms-auto\" role=\"button\" href=\"login.php\" style=\"margin-left: 51px;color: transparent; background_color: transparent\"></a>";

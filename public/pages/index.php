@@ -192,7 +192,7 @@
         <div class="container content-wrapper">
             <div class="availability-container">
                 <div class="availability-guidance">
-                    <p>Verifier les disponibilités</p>
+                    <p>Verifier les disponibilités </p>
                 </div>
                 <form class="border rounded-0" method="post" action="../../src/pages/checkLiaisons.php">
 
@@ -202,7 +202,7 @@
                             <div>
                                 <label class="d-block"> Secteurs: </label>
                                 <?php
-                                include('../../src/pages/functions/getLiaisons.php');
+                                include('../../src/pages/functions/getSecteurs.php');
                                 getSecteurs();
                                 ?>
 

@@ -1,7 +1,7 @@
 <?php
 //Démarrer la session
 session_start();
-
+$_SESSION["erreurMessageDispo"] = $_SESSION["erreurTypeDispo"] = "";
 
 if (isset($_POST['submitDispo'])) {
     if (!empty($_POST['secteur'])) {
