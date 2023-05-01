@@ -14,6 +14,7 @@ if (isset($_POST['submitResa'])) {
     $_SESSION["CPResa"] = $CPResa;
     $VilleResa = $_POST['VilleResa'];
     $_SESSION["VilleResa"] = $VilleResa;
+    $libelleResa = $_POST['libelleResa'];
     $tarifResa = $_POST['tarifResa'];
     $nombreResa = $_POST['nombreResa'];
 
@@ -55,9 +56,23 @@ if (isset($_POST['submitResa'])) {
     echo "CP: " . $CPResa . "<br>";
     echo "Ville: " . $VilleResa . "<br>";
 
-
+    // Génération d'un numéro de réservation unique.
     $numero_reservation_unique = genererNumeroReservationUnique();
     echo "Numéro de Réservation: " . $numero_reservation_unique . "<br>";
+
+    // initialiser le tableau des libelles_type
+    $libelles_type_selectionnes = array();
+
+    // parcourir les inputs de chaque ligne
+    foreach ($nombreResa as $index => $nombre) {
+        if ($nombre > 0) {
+            // si le nombre est supérieur à zéro, ajouter le libelle_type correspondant dans le tableau
+            $libelles_type_selectionnes[] = $libelleResa[$index];
+        }
+    }
+
+    // afficher le résultat
+    echo "Les libelles_type sélectionnés sont : " . implode(", ", $libelles_type_selectionnes);
     /*
     try {
         // Connexion à la base de données

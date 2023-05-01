@@ -125,6 +125,7 @@
                                                 for ($i = 0; $i < count($libelles_type); $i++) {
                                                     echo "<tr>";
                                                     echo '<td>' . $libelles_type[$i] . '</td>';
+                                                    echo '<td><input type="hidden" name="libelleResa[' . $i . ']" value="' . $libelles_type[$i] . '"> </td>';
                                                     echo '<td>' . $tarifs[$i] . " €" . '</td>';
                                                     echo '<td><input type="hidden" name="tarifResa[' . $i . ']" value="' . $tarifs[$i] . '"> </td>';
                                                     echo '<td>' . "<input type=\"number\" name=\"nombreResa[$i]\" min=\"0\" max=\"10\" step=\"1\" value=0>" . '</td>';
