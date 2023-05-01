@@ -72,7 +72,7 @@ if (isset($_POST['submitResa'])) {
     }
 
     // afficher le résultat
-    echo "Les libelles_type sélectionnés sont : " . implode(", ", $libelles_type_selectionnes);
+    echo "Les libelles_type sélectionnés sont :  <br> " . implode(" <br> ", $libelles_type_selectionnes);
     /*
     try {
         // Connexion à la base de données
