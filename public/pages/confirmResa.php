@@ -102,11 +102,11 @@
                             <div class="card mb-5">
                                 <div class="card-body d-flex flex-column align-items-center">
 
-                                    <form action="../../src/pages/successResa.php" class="text-center" method="post">
-                                        <div class="mb-3"><input class="form-control" type="text" name="nom" placeholder="Nom"></div>
-                                        <div class="mb-3"><input class="form-control" type="text" name="adresse" placeholder="Adresse"></div>
-                                        <div class="mb-3"><input class="form-control" type="text" name="CP" placeholder="CP"></div>
-                                        <div class="mb-3"><input class="form-control" type="text" name="Ville" placeholder="Ville"></div>
+                                    <form action="../../src/pages/checkReservation.php" class="text-center" method="post">
+                                        <div class="mb-3"><input class="form-control" type="text" name="nomResa" placeholder="Nom" required></div>
+                                        <div class="mb-3"><input class="form-control" type="text" name="adresseResa" placeholder="Adresse" required></div>
+                                        <div class="mb-3"><input class="form-control" type="number" name="CPResa" placeholder="CP" required></div>
+                                        <div class="mb-3"><input class="form-control" type="text" name="VilleResa" placeholder="Ville" required></div>
 
                                         <table id="tarifLiaisons">
                                             <thead>
@@ -126,7 +126,8 @@
                                                     echo "<tr>";
                                                     echo '<td>' . $libelles_type[$i] . '</td>';
                                                     echo '<td>' . $tarifs[$i] . " €" . '</td>';
-                                                    echo '<td>' . "<input type=\"number\" name=\"nombreResa[$i]\" min=\"0\" max=\"10\" step=\"1\" required>" . '</td>';
+                                                    echo '<td><input type="hidden" name="tarifResa[' . $i . ']" value="' . $tarifs[$i] . '"> </td>';
+                                                    echo '<td>' . "<input type=\"number\" name=\"nombreResa[$i]\" min=\"0\" max=\"10\" step=\"1\" value=0>" . '</td>';
                                                     echo "</tr>";
                                                 }
                                                 ?>
@@ -134,7 +135,7 @@
                                             </tbody>
 
                                         </table>
-                                        <div class="mb-3"><input class="btn btn-primary d-block w-100" type="submit" name="submit" value="Confirmer la réservation"></input></div>
+                                        <div class="mb-3"><input class="btn btn-primary d-block w-100" type="submit" name="submitResa" value="Confirmer la réservation"></input></div>
 
                                         <?php
                                         if (isset($_SESSION["erreurTypeLogin"]) && isset($_SESSION["erreurMessageLogin"])) {
