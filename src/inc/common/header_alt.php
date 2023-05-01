@@ -12,7 +12,9 @@
             } else {
                 echo "<a class=\"btn btn-primary ms-auto\" role=\"button\" href=\"login.php\" style=\"margin-left: 51px;\">Identification</a>";
                 echo "<a class=\"btn btn-primary text-end d-xl-flex mb-auto\" role=\"button\" style=\"margin-left: 48px;display: flex;position: relative;margin-top: -1px;padding-left: 9px;\" data-bs-target=\"#login\" href=\"signUp.php\">Inscription</a>";
-            } ?>
+            }
+            $_SESSION["erreurMessageDispo"] = "";
+            ?>
         </div>
     </div>
 </nav>

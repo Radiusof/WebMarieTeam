@@ -13,7 +13,7 @@
     <div class="container py-4 py-xl-5">
         <div class="row gy-4 gy-md-0">
             <div class="col-md-6" style="padding-left: 0px;">
-                <div class="p-xl-5 m-xl-5" style="padding-top: 70px;padding-right: 46px;margin-right: 50px;margin-bottom: 44px;"><img class="rounded img-fluid w-100 fit-cover" style="min-height: 300px;padding-bottom: 0px;" src="../img/th-3658011812.jpg?h=9cc00ce6430980397f2ae8cf8f6bf814" width="354" height="300"></div>
+                <div class="p-xl-5 m-xl-5" style="padding-top: 70px;padding-right: 46px;margin-right: 50px;margin-bottom: 44px;"><img class="rounded img-fluid w-100 fit-cover" style="min-height: 300px;padding-bottom: 0px;" src="./img/th-3658011812.jpg?h=9cc00ce6430980397f2ae8cf8f6bf814" width="354" height="300"></div>
             </div>
             <div class="col-md-6 d-md-flex align-items-md-center">
                 <div style="max-width: 350px;">

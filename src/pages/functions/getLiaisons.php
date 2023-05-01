@@ -1,9 +1,10 @@
 <?php
 session_start();
-$date = $_SESSION["date"];
 $secteur = $_REQUEST["secteur"];
+$_SESSION['secteur'] = $secteur;
 
 try {
+
     // Connexion à la base de données
     $dsn = "mysql:host=localhost;dbname=marieteam;charset=utf8";
     $opt = array(
@@ -11,27 +12,15 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     );
     $db = new PDO($dsn, "supAdmin", "4uFw9is0/qUxZ)Wh", $opt);
+
     $_SESSION["erreurMessageDispo"] = "";
-    //Requête pour récuper les liaisons disponibles a la période sélectionnée.
+    //Requête pour récuper les liaisons disponibles au secteur sélectionnée.
     $checkDispo = "SELECT * 
             FROM liaison 
-            WHERE id_secteur = ? 
-            AND id_liaison IN (
-                SELECT id_liaison
-                FROM tarifer 
-                WHERE id_periode  IN ( 
-                    SELECT id_periode 
-                    FROM periode
-                    WHERE ? BETWEEN debut AND fin AND ? IN (
-                        SELECT date_depart
-                        FROM travers
-                    )
-                )
-            )";
+            WHERE id_secteur = ? ;";
     $checkResultDispo = $db->prepare($checkDispo);
     $checkResultDispo->bindParam(1, $secteur, PDO::PARAM_INT);
-    $checkResultDispo->bindParam(2, $date, PDO::PARAM_STR);
-    $checkResultDispo->bindParam(3, $date, PDO::PARAM_STR);
+
 
     if (!$checkResultDispo->execute()) {
         $_SESSION["erreurMessageDispo"] = "Erreur lors de la requête.";
@@ -41,13 +30,25 @@ try {
         die();
     }
 
-    // Créer la liste déroulante
-    echo "<label class=\"d-block\"> Liaisons: </label>";
-    echo "<select name='dispoLiaison' onchange='getHoraires(this.value)'>";
-    while ($row = $checkResultDispo->fetch()) {
-        echo "<option value='" . $row['id_liaison'] . "'>" . $row['port_depart'] . " - " . $row['port_arrivee'] . "</option>";
+    $row_count = $checkResultDispo->rowCount();
+
+    if ($row_count > 0) {
+        $result = $checkResultDispo->fetchAll();
+        $nomLiaison = "";
+        // Générer la liste déroulante avec les résultats de la requête
+        echo "<label class=\"d-block\"> Liaisons: </label>";
+        echo "<select name='dispoLiaison' onchange='getDateDispo(this.value)'>";
+        foreach ($result as $resultat) {
+            $nomLiaison = $resultat['port_depart'] . " - " . $resultat['port_arrivee'];
+            echo "<option value='" . $resultat['id_liaison'] . "|" . $nomLiaison . "'>" . $nomLiaison . "</option>";
+        }
+        echo "</select>" . "<br>";
+        exit();
+    } else {
+        $_SESSION["erreurMessageDispo"] = "Pas de liaison disponible dans ce secteur.";
+        $_SESSION["erreurTypeDispo"] = 5;
+        die();
     }
-    echo "</select>" . "<br>";
 } catch (PDOException $e) {
     echo "error";
     $_SESSION["erreurMessageDispo"] = "La connexion à la base de donnée n'est pas établie : " . $e->getCode() . $e->getMessage();

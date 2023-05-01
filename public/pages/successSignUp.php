@@ -13,7 +13,7 @@
     <div class="container py-4 py-xl-5">
         <div class="row gy-4 gy-md-0">
             <div class="col-md-6">
-                <div class="p-xl-5 m-xl-5"><img class="rounded img-fluid w-100 fit-cover" style="min-height: 300px;" src="../img/beautiful%20Ferry.jpg?h=535e255a1c63ab8cd4e3f684595a8e1e"></div>
+                <div class="p-xl-5 m-xl-5"><img class="rounded img-fluid w-100 fit-cover" style="min-height: 300px;" src="./img/beautiful%20Ferry.jpg?h=535e255a1c63ab8cd4e3f684595a8e1e"></div>
             </div>
             <div class="col-md-6 d-md-flex align-items-md-center">
                 <div style="max-width: 350px;">
