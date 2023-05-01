@@ -50,7 +50,7 @@ if (isset($_POST['submitResa'])) {
     echo "Total B: " . $totalCatB . "€<br>";
     echo "Total C: " . $totalCatC . "€<br>";
     echo "Total Cout Resa: " . $totalCoutResa . "€<br>";
-    $numeroResa = sprintf("%012d", rand(0, 999999999999));
+
     echo "Nom: " . $nom . "<br>";
     echo "Adresse: " . $adresseResa . "<br>";
     echo "CP: " . $CPResa . "<br>";
