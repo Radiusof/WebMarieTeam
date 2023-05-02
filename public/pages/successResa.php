@@ -18,7 +18,11 @@
             <div class="col-md-6 d-md-flex align-items-md-center">
                 <div style="max-width: 350px;">
                     <h2 class="text-uppercase fw-bold">Réservation confirmée !</h2>
-                    <p class="my-3">Merci de votre confiance et à très vite sur notre ferry !</p><a class="btn btn-primary btn-lg me-2" role="button" href="index.php" style="padding-bottom: 11px;margin-bottom: 22px;">Retour au menu</a><a class="btn btn-outline-primary btn-lg" role="button" href="#" style="margin-top: 18px;">Voir ma réservation</a>
+                    <p>Numéro de réservation : <?php echo $_SESSION['numeroResa']  ?></p>
+                    <p> Composé de </p>
+                    <p><?php echo implode(" <br> ", $_SESSION['libellesSelect']) ?> </p>
+                    <p> Pour un total de <?php echo $_SESSION['totalPrix'] ?> € </p>
+                    <p class="my-3">Merci de votre confiance et à très vite sur notre ferry !</p><a class="btn btn-primary btn-lg me-2" role="button" href="index.php" style="padding-bottom: 11px;margin-bottom: 22px;">Retour au menu</a>
                 </div>
             </div>
         </div>

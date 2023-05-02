@@ -30,7 +30,13 @@
                 <p><br><strong>Une autre façon de traverser la mer</strong><br><br></p>
                 <!-- <a class="btn btn-primary text-center" role="button" style="margin-top: 18px;margin-right: 0px;padding-left: 34px;padding-right: 35px;" href="Tarif.php">Tarifs</a> -->
             </div>
-            <div class="col-xl-9 mx-auto position-relative"><a class="btn btn-primary" role="button" style="margin-top: 18px;" href="Reservation.php">Reservation</a></div>
+            <div class="col-xl-9 mx-auto position-relative"><a class="btn btn-primary" role="button" style="margin-top: 18px;" href=<?php
+                                                                                                                                    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+                                                                                                                                        echo "Reservation.php";
+                                                                                                                                    } else {
+                                                                                                                                        echo "login.php";
+                                                                                                                                    }
+                                                                                                                                    ?>>Reservation</a></div>
         </div>
     </div>
 </header>

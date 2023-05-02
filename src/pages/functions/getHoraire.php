@@ -2,8 +2,18 @@
 session_start();
 // get the q parameter from URL
 $traversee = $_REQUEST["traversee"];
-$_SESSION['traversee'] = $traversee;
 
+// Récupére le nom de la liaison précédemment sélectionnéé
+if (isset($_POST['dispoDate'])) {
+    // Récupérez la valeur sélectionnée de la liste déroulante
+    $valeurId = $_POST['dispoDate'];
+    $valeurIdexplode = explode('|', $valeurId);
+
+    // Enregistrez la valeur sélectionnée dans la variable de session
+    $_SESSION['traversee'] = $valeurIdexplode[0];
+}
+
+$traversee = $_SESSION['traversee'];
 
 try {
 

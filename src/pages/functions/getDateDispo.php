@@ -37,7 +37,7 @@ try {
         echo "<select name='dispoDate'  onchange='getHoraire(this.value)' >";
         foreach ($result as $resultat) {
             $newDate = date("d-m-Y", strtotime($resultat['date_depart']));
-            echo "<option value='" . $resultat['id_traversee'] .  "|" . $newDate . "|" . $resultat['heure'] . "'>" . $newDate . " - " . $resultat['heure'] .  "</option>";
+            echo "<option value='" . $resultat['id_traversee'] .  "|" . $newDate . "|" . $resultat['heure'] . "'>" . $newDate . " - " . $resultat['heure'] . ' - ' . $resultat['id_traversee'] . "</option>";
         }
         echo "</select>" . "<br>";
     } else {

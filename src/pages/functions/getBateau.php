@@ -18,6 +18,7 @@ if (isset($_POST['dispoDate'])) {
     $valeurDateExplode = explode('|', $valeurDate);
 
     // Enregistrez la valeur sélectionnée dans la variable de session
+    $_SESSION['traversee'] = $valeurDateExplode[0];
     $_SESSION['date'] = $valeurDateExplode[1];
     $_SESSION['heure'] = $valeurDateExplode[2];
 }

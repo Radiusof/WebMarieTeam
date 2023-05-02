@@ -112,7 +112,13 @@
                                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
                                             </svg></span><span>Terrasse panoramique extérieur</span></li>
                                 </ul>
-                            </div><a class="btn btn-primary d-block w-100" role="button" href="Reservation.php">Reserver</a>
+                            </div><a class="btn btn-primary d-block w-100" role="button" href=<?php
+                                                                                                if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+                                                                                                    echo "Reservation.php";
+                                                                                                } else {
+                                                                                                    echo "login.php";
+                                                                                                }
+                                                                                                ?>>Reserver</a>
                         </div>
                     </div>
                 </div>
@@ -148,7 +154,13 @@
                                             </svg></span><span style="padding-top: 0px;">Terrasse panoramique extérieur<br></span></li>
                                     <li class="d-flex mb-2"></li>
                                 </ul>
-                            </div><a class="btn btn-primary d-block w-100" role="button" href="Reservation.php">Reserver</a>
+                            </div><a class="btn btn-primary d-block w-100" role="button" href=<?php
+                                                                                                if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+                                                                                                    echo "Reservation.php";
+                                                                                                } else {
+                                                                                                    echo "login.php";
+                                                                                                }
+                                                                                                ?>>Reserver</a>
                         </div>
                     </div>
                 </div>
@@ -183,7 +195,13 @@
                                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
                                             </svg></span><span>Terrasse panoramique extérieur</span></li>
                                 </ul>
-                            </div><a class="btn btn-primary d-block w-100" role="button" href="Reservation.php">Reserver</a>
+                            </div><a class="btn btn-primary d-block w-100" role="button" href=<?php
+                                                                                                if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+                                                                                                    echo "Reservation.php";
+                                                                                                } else {
+                                                                                                    echo "login.php";
+                                                                                                }
+                                                                                                ?>>Reserver</a>
                         </div>
                     </div>
                 </div>
@@ -224,7 +242,13 @@
                     <div class="pb-2 pb-lg-1">
                         <h2 class="fw-bold mb-2">Découvrez tout nos autres trajets et tarifs =&gt;</h2>
                     </div>
-                    <div class="my-2"><a class="btn btn-light fs-5 py-2 px-4" role="button" href="Reservation.php">Reserver</a></div>
+                    <div class="my-2"><a class="btn btn-light fs-5 py-2 px-4" role="button" href=<?php
+                                                                                                    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+                                                                                                        echo "Reservation.php";
+                                                                                                    } else {
+                                                                                                        echo "login.php";
+                                                                                                    }
+                                                                                                    ?>>Reserver</a></div>
                 </div>
             </div>
         </section>

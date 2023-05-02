@@ -13,6 +13,7 @@
         th,
         td {
             border: 1px solid black;
+            text-align: center;
         }
 
         table {
@@ -24,7 +25,7 @@
             background: grey;
             border: 1px solid white;
             padding: 0;
-            text-align: center;
+
         }
     </style>
     <?php include('../../src/inc/common/head_link.php') ?>
@@ -41,19 +42,23 @@
                         case 11:
                             echo "<img class=\"rounded img-fluid w-100 fit-cover\" style=\"min-height: 300px;padding-bottom: 0px;\" src=\"./img/Boat11.jpg\" width=\"354\" height=\"300\">";
                             echo  "<span class=\"legend\">Votre bateau : <bold>Le Luce Isle <bold></span>";
+                            echo  "<span class=\"legend\">Votre traversee : <bold>" . $_SESSION['traversee']  . "<bold></span>";
                             break;
                         case 2:
                             echo "<img class=\"rounded img-fluid w-100 fit-cover\" style=\"min-height: 300px;padding-bottom: 0px;\" src=\"./img/Boat2.jpg\" width=\"354\" height=\"300\">";
                             echo  "<span class=\"legend\">Votre bateau : <bold>Le Al'Xi <bold></span>";
+                            echo  "<span class=\"legend\">Votre traversee : <bold>" . $_SESSION['traversee']  . "<bold></span>";
                             break;
                         case 45:
                             echo "<img class=\"rounded img-fluid w-100 fit-cover\" style=\"min-height: 300px;padding-bottom: 0px;\" src=\"./img/Boat45.jpg\" width=\"354\" height=\"300\">";
                             echo  "<span class=\"legend\">Votre bateau : <bold>Le Shuwawa <bold></span>";
+                            echo  "<span class=\"legend\">Votre traversee : <bold>" . $_SESSION['traversee']  . "<bold></span>";
 
                             break;
                         case 23:
                             echo "<img class=\"rounded img-fluid w-100 fit-cover\" style=\"min-height: 300px;padding-bottom: 0px;\" src=\"./img/Boat23.jpg\" width=\"354\" height=\"300\">";
                             echo  "<span class=\"legend\">Votre bateau : <bold>Le Queen Mama <bold></span>";
+                            echo  "<span class=\"legend\">Votre traversee : <bold>" . $_SESSION['traversee']  . "<bold></span>";
                             break;
                         default:
                             echo "";
@@ -111,9 +116,9 @@
                                         <table id="tarifLiaisons">
                                             <thead>
                                                 <tr>
-                                                    <th rowspan="2">Catégorie</th>
-                                                    <th rowspan="2">Tarif €</th>
-                                                    <th rowspan="2">Quantité</th>
+                                                    <th>Catégorie</th>
+                                                    <th>Tarif €</th>
+                                                    <th>Quantité</th>
 
                                                 </tr>
                                             </thead>
@@ -125,10 +130,10 @@
                                                 for ($i = 0; $i < count($libelles_type); $i++) {
                                                     echo "<tr>";
                                                     echo '<td>' . $libelles_type[$i] . '</td>';
-                                                    echo '<td><input type="hidden" name="libelleResa[' . $i . ']" value="' . $libelles_type[$i] . '"> </td>';
                                                     echo '<td>' . $tarifs[$i] . " €" . '</td>';
-                                                    echo '<td><input type="hidden" name="tarifResa[' . $i . ']" value="' . $tarifs[$i] . '"> </td>';
                                                     echo '<td>' . "<input type=\"number\" name=\"nombreResa[$i]\" min=\"0\" max=\"10\" step=\"1\" value=0>" . '</td>';
+                                                    echo '<td><input type="hidden" name="tarifResa[' . $i . ']" value="' . $tarifs[$i] . '"> </td>';
+                                                    echo '<td><input type="hidden" name="libelleResa[' . $i . ']" value="' . $libelles_type[$i] . '"> </td>';
                                                     echo "</tr>";
                                                 }
                                                 ?>
@@ -139,8 +144,8 @@
                                         <div class="mb-3"><input class="btn btn-primary d-block w-100" type="submit" name="submitResa" value="Confirmer la réservation"></input></div>
 
                                         <?php
-                                        if (isset($_SESSION["erreurTypeLogin"]) && isset($_SESSION["erreurMessageLogin"])) {
-                                            echo '<span style="color:red;text-align:center;"><strong>' . $_SESSION["erreurMessageLogin"] . '</strong></span>';
+                                        if (isset($_SESSION["erreurTypeResa"]) && isset($_SESSION["erreurMessageResa"])) {
+                                            echo '<span style="color:red;text-align:center;"><strong>' . $_SESSION["erreurMessageResa"] . '</strong></span>';
                                         }
                                         ?>
                                     </form>

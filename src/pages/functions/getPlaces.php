@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$traversee = intval($_SESSION['traversee']);
+$traversee = $_SESSION['traversee'];
 
 try {
 
@@ -14,7 +14,7 @@ try {
     $db = new PDO($dsn, "supAdmin", "4uFw9is0/qUxZ)Wh", $opt);
 
     $_SESSION["erreurMessageDispo"] = "";
-    //Requête pour récuper les dates disponibles pour la liaison sélectionnée.
+    //Requête pour récuper les capaciteMax disponibles pour la liaison sélectionnée.
     $checkDispo = "SELECT *
             FROM contenir 
             WHERE id_traversee = ? ;";

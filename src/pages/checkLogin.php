@@ -21,9 +21,7 @@ if (isset($_POST['submit'])) {
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         );
         $db = new PDO($dsn, "supAdmin", "4uFw9is0/qUxZ)Wh", $opt);
-        echo "start db";
 
-        echo "check email";
         //Vérifie le format email
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION["erreurMessageLogin"] = "Le format de l'email est invalide!";
@@ -45,7 +43,6 @@ if (isset($_POST['submit'])) {
             header('Location: ../../public/pages/login.php');
             die();
         }
-        echo "check mail db";
         if ($checkResultMdp->rowCount() == 0) {
             $_SESSION["erreurMessageLogin"] = "L'adresse email renseigné n'existe pas, veuillez réesssayer ou créer un compte.";
             $_SESSION["erreurTypeLogin"] = 2;
@@ -57,7 +54,7 @@ if (isset($_POST['submit'])) {
         $hashMdp = $checkResultMdp->fetchColumn();
 
         //Vérifie si le mdp correspond  à celle de la bdd
-        echo "check mdp";
+
         if (!password_verify($mdp, $hashMdp)) {
             $_SESSION["erreurMessageLogin"] = "Mot de passe incorrect!";
             $_SESSION["erreurTypeLogin"] = 3;
@@ -66,7 +63,7 @@ if (isset($_POST['submit'])) {
             die();
         }
         //Si ok, recupere le nom utilisateur pour la sauvegarder sur la session
-        $checkNom = "SELECT prenom FROM utilisateur WHERE email = ? ";
+        $checkNom = "SELECT prenom,id_utilisateur FROM utilisateur WHERE email = ? ";
         $checkResultNom = $db->prepare($checkNom);
         $checkResultNom->bindParam(1, $email, PDO::PARAM_STR);
         echo "check nom";
@@ -79,8 +76,11 @@ if (isset($_POST['submit'])) {
         }
 
         //Renvoie vers la page d'accueil
-        $_SESSION["nomUser"] = $checkResultNom->fetchColumn();
+        $result = $checkResultNom->fetch();
+        $_SESSION["nomUser"] = $result['prenom'];
+        $_SESSION['idUser'] = $result['id_utilisateur'];
         $_SESSION["loggedIn"] = true;
+
         header('Location: ../../public/pages/index.php');
         die();
     } catch (PDOException $e) {
