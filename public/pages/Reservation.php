@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2>Réservation</h2>
+                    <h2>Choissisez votre trajet</h2>
                     <p class="w-lg-50">Quelle sera votre prochaine destination ?</p>
                 </div>
             </div>

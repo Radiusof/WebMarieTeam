@@ -1,6 +1,10 @@
 <?php
 //Démarrer la session
 session_start();
+require '../../vendor/autoload.php';
+
+use Dotenv\Dotenv;
+
 $_SESSION["erreurMessageDispo"] = $_SESSION["erreurTypeDispo"] = "";
 
 if (isset($_POST['submitDispo'])) {

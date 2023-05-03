@@ -1,6 +1,10 @@
 <?php
-// ../../src/pages/successResa.php 
+
 session_start();
+require '../../vendor/autoload.php';
+
+use Dotenv\Dotenv;
+
 include_once('./functions/getNumeroResa.php');
 $error_type_resa = $error_message_resa = "";
 // Vérification de la soumission du formulaire
@@ -57,6 +61,19 @@ if (isset($_POST['submitResa'])) {
     $totalCoutResa = $totalCatA + $totalCatB + $totalCatC;
     $_SESSION['totalPrix'] = $totalCoutResa;
 
+    $root = $_SERVER['DOCUMENT_ROOT'] . "\\MarieTeam\\";
+    $dotenv = Dotenv::createImmutable($root);
+    $dotenv->load();
+    $dns = $_ENV['DATABASE_DNS'];
+    $userDB = $_ENV['DATABASE_USER'];
+    $pswdDB = $_ENV['DATABASE_PASSWORD'];
+    // Connexion à la base de données
+    $dsn = $dns;
+    $opt = array(
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    );
+    $db = new PDO($dsn, $userDB, $pswdDB, $opt);
     // Génération d'un numéro de réservation unique.
     $numero_reservation_unique = genererNumeroReservationUnique();
     $_SESSION['numeroResa'] = $numero_reservation_unique;
@@ -94,13 +111,7 @@ if (isset($_POST['submitResa'])) {
     //echo "Id_Utilisateur: " . $_SESSION['idUser'];
 
     try {
-        // Connexion à la base de données
-        $dsn = "mysql:host=localhost;dbname=marieteam;charset=utf8";
-        $opt = array(
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-        );
-        $db = new PDO($dsn, "supAdmin", "4uFw9is0/qUxZ)Wh", $opt);
+
 
 
         // Vérifie si le code Postal est valide

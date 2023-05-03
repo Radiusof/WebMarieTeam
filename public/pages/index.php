@@ -56,7 +56,7 @@
     <section class="showcase">
         <div class="container-fluid p-0">
             <div class="row g-0">
-                <div class="col-lg-6 text-white order-lg-2 showcase-img" style="background-image: url(./img/Boat1.jpg);"><span></span></div>
+                <div class="col-lg-6 text-white order-lg-2 showcase-img" style="background-image: url(./img/beautiful\ Ferry.jpg);"><span></span></div>
                 <div class="col-lg-6 my-auto order-lg-1 showcase-text">
                     <h2>Services tout compris</h2>
                     <p class="lead mb-0">Profitez de votre traversée avec des sièges confortables,&nbsp; un espace panoramique couvert et de toilettes propres.</p>
@@ -207,34 +207,8 @@
                 </div>
             </div>
         </div>
-        <div class="container content-wrapper">
-            <div class="availability-container">
-                <div class="availability-guidance">
-                    <p>Verifier les disponibilités </p>
-                </div>
-                <form class="border rounded-0" method="post" action="../../src/pages/checkLiaisons.php">
 
-                    <div class="availability-wrapper" data-customer-id="8DCFD3C1-F06A-2DF5-AC70-EF4FCEA97E0F" data-category="getCategoryAsync" data-contact-url="contact.html"><label class="mb-2" for="check-availability">Les réservations peuvent se faire jusqu'à 100 jours à l'avance.</label>
-                        <div class="availability-input-wrapper">
-                            <div><label class="d-block" for="selected-start-date">Jour de départ</label><input id="selected-start-date" type="date" onchange="removeDataPlusFeedback()" name="dateSelect" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+100 days')); ?>"></div>
-                            <div>
-                                <label class="d-block"> Secteurs: </label>
-                                <?php
-                                include('../../src/pages/functions/getSecteurs.php');
-                                getSecteurs();
-                                ?>
-
-                            </div><input id=" check-availability" class="btn btn-primary" type="submit" name="submitDispo" value="Vérifier !""></button>
-                            <?php if (isset($_SESSION["erreurTypeDispo"]) && isset($_SESSION["erreurMessageDispo"])) {
-                                echo '<span style="color:red;text-align:center;"><strong>' . $_SESSION["erreurMessageDispo"] . '</strong></span>';
-                            }
-                            ?>
-                    </div>
-                    </form>
-                    <div class=" feedback-wrapper mt-3">
-                        </div>
-                    </div>
-            </div>
+        </div>
         </div>
         <section class="py-4 py-xl-5">
             <div class="container">

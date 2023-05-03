@@ -1,6 +1,9 @@
 <?php
 //Démarrer la session
 session_start();
+require '../../vendor/autoload.php';
+
+use Dotenv\Dotenv;
 
 // Vérification de la soumission du formulaire
 if (isset($_POST['submit'])) {
@@ -24,12 +27,19 @@ if (isset($_POST['submit'])) {
 
    try {
       // Connexion à la base de données
-      $dsn = "mysql:host=localhost;dbname=marieteam;charset=utf8";
+      $root = $_SERVER['DOCUMENT_ROOT'] . "\\MarieTeam\\";
+      $dotenv = Dotenv::createImmutable($root);
+      $dotenv->load();
+      $dns = $_ENV['DATABASE_DNS'];
+      $userDB = $_ENV['DATABASE_USER'];
+      $pswdDB = $_ENV['DATABASE_PASSWORD'];
+      // Connexion à la base de données
+      $dsn = $dns;
       $opt = array(
          PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
          PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
       );
-      $db = new PDO($dsn, "supAdmin", "4uFw9is0/qUxZ)Wh", $opt);
+      $db = new PDO($dsn, $userDB, $pswdDB, $opt);
 
       //Vérifie le format email
       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
